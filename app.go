@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"math/rand"
-	"html/template"
 )
 
 var url string
