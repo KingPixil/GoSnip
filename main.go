@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"math/rand"
+	"os"
 )
 
 var url string
@@ -14,12 +15,14 @@ var code string
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
+    port := os.Getenv("PORT")
+    fmt.Println(port)
     i := http.FileServer(http.Dir("static"))
     http.Handle("/", i)
 	http.HandleFunc("/new", n)
 
 	log.Println("Snip is Listening")
-	log.Fatal(http.ListenAndServe(":3000", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func n(w http.ResponseWriter, r *http.Request)  {
