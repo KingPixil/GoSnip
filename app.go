@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+//	"fmt"
 	"log"
 	"net/http"
 	"math/rand"
@@ -24,7 +24,7 @@ func n(w http.ResponseWriter, r *http.Request)  {
  	if r.Method == "POST" {
  		url = r.FormValue("url")
  		code = randCode(5)
- 		fmt.Fprint(w, code)
+ 		http.ServeFile(w, r, "./static/new.html")
  		http.HandleFunc("/" + code, redir)
     }
 }
