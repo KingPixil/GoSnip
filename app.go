@@ -24,7 +24,7 @@ func main() {
 func n(w http.ResponseWriter, r *http.Request)  {
  	if r.Method == "POST" {
  		url = r.FormValue("url")
- 		code = randSeq(5)
+ 		code = randCode(5)
  		fmt.Fprint(w, code)
  		http.HandleFunc("/" + code, redir)
     }
@@ -35,7 +35,7 @@ func redir(w http.ResponseWriter, r *http.Request) {
 }
 
 
-func randSeq(n int) string {
+func randCode(n int) string {
     b := make([]rune, n)
     for i := range b {
         b[i] = letters[rand.Intn(len(letters))]
