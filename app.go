@@ -13,7 +13,7 @@ var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
     i := http.FileServer(http.Dir("static"))
-    http.Handle("/", i))
+    http.Handle("/", i)
 	http.HandleFunc("/new", n)
 
 	log.Println("Snip is Listening")
