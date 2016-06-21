@@ -17,7 +17,7 @@ func main() {
     http.Handle("/", i)
 	http.HandleFunc("/new", n)
 
-	log.Println("Listening on http://localhost:8080/")
+	log.Println("Snip is Listening")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
