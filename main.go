@@ -16,13 +16,12 @@ var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
     port := os.Getenv("PORT")
-    fmt.Println(port)
     i := http.FileServer(http.Dir("static"))
     http.Handle("/", i)
 	http.HandleFunc("/new", n)
 
 	log.Println("Snip is Listening")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":" + port, nil))
 }
 
 func n(w http.ResponseWriter, r *http.Request)  {
