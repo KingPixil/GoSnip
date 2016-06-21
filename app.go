@@ -1,6 +1,7 @@
 package main
 
 import (
+    "fmt"
     "strings"
     "io/ioutil"
 	"log"
@@ -25,8 +26,8 @@ func n(w http.ResponseWriter, r *http.Request)  {
  	if r.Method == "POST" {
  		url = r.FormValue("url")
  		code = randCode(5)
-        temp()
- 		http.ServeFile(w, r, "./static/new.html")
+        fmt.Fprint(w, temp())
+ 		//http.ServeFile(w, r, "./static/new.html")
  		http.HandleFunc("/" + code, redir)
     }
 }
@@ -44,10 +45,12 @@ func randCode(n int) string {
     return string(b)
 }
 
-func temp() {
-    	content, err := ioutil.ReadFile("./static/newTemp.html")
+func temp() string {
+    	content, err := ioutil.ReadFile("./static/new.html")
+    	if err != nil {
+    	    log.Fatal(err)
+    	}
         newHTML := strings.Replace(string(content), "{{code}}", code, -1)
-        fmt.Println(newHTML)
 
-        err = ioutil.WriteFile("./static/new.html", []byte(newHTML), 0644)
+        return newHTML
 }
