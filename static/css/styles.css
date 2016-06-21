@@ -12,6 +12,10 @@ body {
     background-size: cover;
 }
 
+#snippedUrl {
+    color: white;
+}
+
 
 #footer {
   position: fixed;
