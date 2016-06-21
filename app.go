@@ -50,7 +50,4 @@ func temp() {
         fmt.Println(newHTML)
 
         err = ioutil.WriteFile("./static/new.html", []byte(newHTML), 0644)
-        if err != nil {
-            panic(err)
-        }
 }
