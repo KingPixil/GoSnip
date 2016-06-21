@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    background-image: url('https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5f29d037842c14cb81cddea387221b20');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+#footer {
+  position: fixed;
+  mix-blend-mode: difference;
+  bottom: 5%;
+  right: 5%;
+  z-index: 100;
+}
+
+
+#linkP {
+    color: white;
+    text-decoration: none;
+}
