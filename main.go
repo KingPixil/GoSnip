@@ -9,7 +9,7 @@ import (
 
 func main() {
     port := os.Getenv("PORT")
-    
+    public := http.FileServer(http.Dir("./static/public"))
     http.HandleFunc("/", landing)
     http.HandleFunc("/new", newHandler)
 }
