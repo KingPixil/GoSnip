@@ -10,6 +10,7 @@ import (
 )
 var url string
 var code string
+var baseURL string = "https://snip-kingsofcoding.c9users.io/"
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
@@ -30,7 +31,8 @@ func newHandler(w http.ResponseWriter, r *http.Request) {
         code = randCode(7)
         
         http.HandleFunc("/" + code, redir)
-        straw.Bend("static/template/template.html", []string{})
+        compiled := straw.Bend("static/template/template.html", []string{"link", baseURL + code})
+        straw.Drink(w, compiled)
     }
 }
 
