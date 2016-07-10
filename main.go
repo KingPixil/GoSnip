@@ -24,9 +24,6 @@ func main() {
     fmt.Println("Listening on" + port)
 }
 
-func landing(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, "./static/index.html")
-}
 
 func newHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method == "POST" {
