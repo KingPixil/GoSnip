@@ -1,9 +1,10 @@
 package main
 
 import (
-    "github.com/KingPixil/straw"
+    //"github.com/KingPixil/straw"
     "net/http"
     "os"
+    "math/rand"
 )
 
 var code string
