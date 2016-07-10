@@ -2,7 +2,6 @@ package main
 
 import (
     "github.com/KingPixil/straw"
-    "string"
     "net/http"
     "os"
 )
@@ -19,6 +18,8 @@ func main() {
     
     http.HandleFunc("/", landing)
     http.HandleFunc("/new", newHandler)
+    
+    http.ListenAndServe(":" + port, nil)
 }
 
 func landing(w http.ResponseWriter, r *http.Request) {
