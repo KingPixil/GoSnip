@@ -13,7 +13,7 @@ var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
     port := os.Getenv("PORT")
-    index := http.FileServer(http.Dir("./static/"))
+    index := http.FileServer(http.Dir("static"))
     
     
     http.Handle("/", index)
