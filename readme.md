@@ -5,4 +5,5 @@ This version is in Go for its speed and maintainability
 ## TODO
 
 - [x] Basic Functionality
-- [ ] Styling with Wing
+- [ ] Store in database
+- [ ] URL http/https not required/validation
