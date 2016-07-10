@@ -33,7 +33,7 @@ func newHandler(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func redir(w http.ResponseWriter, r *http.Request) {
+func redir(w http.ResponseWriter, r *http.Request, url string) {
     http.Redirect(w, r, url, 301)
 }
 
