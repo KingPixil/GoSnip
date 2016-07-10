@@ -1,14 +1,14 @@
 package main
 
 import (
-    //"github.com/KingPixil/straw"
+    "github.com/KingPixil/straw"
     "net/http"
     "os"
     "math/rand"
     "fmt"
     "log"
 )
-
+var url string
 var code string
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
@@ -26,12 +26,15 @@ func main() {
 
 func newHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method == "POST" {
-        //url := r.FormValue("url")
+        url = r.FormValue("url")
+        code = randCode(7)
         
+        http.HandleFunc("/" + code, redir)
+        straw.Bend("static/template/template.html", []string{})
     }
 }
 
-func redir(w http.ResponseWriter, r *http.Request, url string) {
+func redir(w http.ResponseWriter, r *http.Request) {
     http.Redirect(w, r, url, 301)
 }
 
