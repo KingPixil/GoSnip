@@ -6,6 +6,7 @@ import (
     "os"
     "math/rand"
     "fmt"
+    "log"
 )
 
 var code string
@@ -13,15 +14,13 @@ var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func main() {
     port := os.Getenv("PORT")
-    index := http.FileServer(http.Dir("static"))
-    
-    
-    http.Handle("/", index)
+    i := http.FileServer(http.Dir("static"))
+    http.Handle("/", i)
     
     http.HandleFunc("/new", newHandler)
     
-    http.ListenAndServe(":" + port, nil)
-    fmt.Println("Listening on" + port)
+    fmt.Println("Listening on Port " + port)
+    log.Fatal(http.ListenAndServe(":" + port, nil))
 }
 
 
